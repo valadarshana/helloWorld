@@ -18,12 +18,12 @@ class ShowData: UIViewController {
     
    var sNmae :String?
    var aName:String?
-    var count=0
+   var count=0
    var desc:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+          
         lblSongName.text=sNmae
         lblAlbum.text=aName
         lblDesc.text=desc
@@ -36,6 +36,11 @@ class ShowData: UIViewController {
         lblCount.text=String(stp.value)
         lblCount.font = UIFont(name: "Arial", size: CGFloat(stp.value))
       
+    }
+    
+    @IBAction func back(_ sender: UIStepper) {
+      
+        navigationController?.popViewController(animated: true)
     }
     
     

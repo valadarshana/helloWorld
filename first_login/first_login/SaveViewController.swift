@@ -18,8 +18,6 @@ class SaveViewController: UIViewController {
     @IBOutlet weak var lblDarkThem:UILabel!
     @IBOutlet weak var btnSave:UIButton!
     
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         txtDesc.layer.borderWidth=1
@@ -31,15 +29,15 @@ class SaveViewController: UIViewController {
         
     }
     
-    
-    
     @IBAction func saveClick(_ sender:UIButton){
-        let  showDataObj = storyboard?.instantiateViewController(withIdentifier: "MapVc") as! MapVc
-                       //showDataObj.sNmae = txtSongName.text
-                       //showDataObj.aName = txtAlbum.text
-                       //showDataObj.desc = txtDesc.text
-                   
-        navigationController?.pushViewController(showDataObj, animated: true)
+       
+        let mainSt = UIStoryboard(name: "Main", bundle: nil)
+        let showData = mainSt.instantiateViewController(identifier:"ShowDataVc")as! ShowData
+        showData.aName = txtAlbum.text
+        showData.sNmae = txtSongName.text
+        showData.desc  = txtDesc.text
+        navigationController?.pushViewController(showData, animated: true)
+        
     }
 
     @IBAction func switchChange(_ sender: UISwitch) {
